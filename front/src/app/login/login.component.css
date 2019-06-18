@@ -1,0 +1,13 @@
+.form-container {
+    margin: 25vh auto;
+}
+
+.btn{
+    width: 100%;
+}
+
+.alert{
+    font-size: 3vh;
+    margin-top: 10vh;
+    text-align: center;
+}

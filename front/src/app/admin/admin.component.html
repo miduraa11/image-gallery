@@ -1,0 +1,25 @@
+<h2 style="text-align: center; margin-top: 5vh;">Dodaj nową etykietę</h2>
+<form [formGroup]="tagForm" autocomplete="off">
+  <h4>Etykieta</h4>
+  <div class="form-group">
+    <input type="text" class="form-control" formControlName="name" required />
+  </div>
+    <button type="button" class="btn btn-success btn-md btn-block" (click)="addTag()">Dodaj etykietę</button>
+</form>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nazwa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tag of tags">
+      <th scope="row">{{tag.id}}</th>
+      <td>{{tag.name}}</td>
+    </tr>
+  </tbody>
+</table>
+
+

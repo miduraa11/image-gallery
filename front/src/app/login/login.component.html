@@ -1,0 +1,38 @@
+<div *ngIf="isLoggedIn; else loggedOut" class="alert alert-success" role="alert">
+  Witaj {{username}} !
+</div>
+
+<ng-template #loggedOut>
+  <div class="form-container" style="max-width:350px;">
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <label for="username">Nazwa użytkownika</label>
+        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
+          required />
+        <div *ngIf="f.submitted && username.invalid">
+          <div *ngIf="username.errors.required">Nazwa użytkownika jest wymagana</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Hasło</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
+          required minlength="6" />
+        <div *ngIf="f.submitted && password.invalid">
+          <div *ngIf="password.errors.required">Hasło jest wymagane</div>
+          <div *ngIf="password.errors.minlength">Za krótkie hasło (wymagane 6 znaków)</div>
+        </div>
+      </div>
+      <div class="form-group" style="text-align: center">
+        <button class="btn btn-primary">Zaloguj się</button>
+        <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+          Błąd logowania: {{errorMessage}}
+        </div>
+      </div>
+    </form>
+    <hr />
+    <p style="text-align: center">Nie masz jeszcze konta?</p>
+    <div style="text-align: center">
+    <a routerLink="/signup" class="btn btn-success">Zarejestruj się</a>
+  </div>
+  </div>
+</ng-template>

@@ -1,0 +1,25 @@
+<h2 style="text-align: center; margin-top: 5vh;">Dodaj nową osobę</h2>
+<form [formGroup]="personForm" autocomplete="off">
+  <h4>Imię i nazwisko</h4>
+  <div class="form-group">
+    <input type="text" class="form-control" formControlName="name" required />
+  </div>
+    <button type="button" class="btn btn-success btn-md btn-block" (click)="addPerson()">Dodaj osobę</button>
+</form>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Imię i nazwisko</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of people">
+      <th scope="row">{{person.id}}</th>
+      <td>{{person.name}}</td>
+    </tr>
+  </tbody>
+</table>
+
+

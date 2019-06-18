@@ -1,0 +1,27 @@
+.container {
+    position: relative;
+  }
+  
+  .container img {
+    width: 100%;
+    height: auto;
+  }
+  
+button {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: rgb(40, 115, 255);
+    color: white;
+    font-size: 16px;
+    padding: 6px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button {
+    background-color: rgb(1, 25, 165);
+  }

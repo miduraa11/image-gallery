@@ -1,0 +1,40 @@
+
+<div *ngIf="token; else loggedOut" class="container">
+  <h2>Dodaj nowe zdjęcie do galerii</h2>
+  <form [formGroup]="imageForm" autocomplete="off">
+
+    <h4>Wybierz zdjęcie</h4>
+    <input type="file" accept="image/*" (change)="onFileSelected($event)" formControlName="image" style="margin: 2vh 0 2vh 0">
+    <img [src]="imageUrl" height="200" *ngIf="imageUrl">
+    <h4>Osoby na zdjęciu</h4>
+    <ng-select [items]="people"
+            bindLabel="name"
+            [multiple]="true"
+            notFoundText="Nie znaleziono"
+            placeholder="Wybierz osoby znajdujące się na zdjęciu"
+            formControlName="people"
+            style="margin: 2vh 0 2vh 0"
+            dropdownPosition="auto"
+            [hideSelected]="true">
+      </ng-select>
+
+      <h4>Etykiety</h4>
+      <ng-select [items]="tags"
+            bindLabel="name"
+            [multiple]="true"
+            notFoundText="Nie znaleziono"
+            placeholder="Wybierz tagi"
+            formControlName="tags"
+            style="margin: 2vh 0 2vh 0"
+            dropdownPosition="auto"
+            [hideSelected]="true">
+      </ng-select>
+      <button type="button" class="btn btn-success btn-lg btn-block" (click)="onUpload()">Dodaj nowe zdjęcie</button>
+  </form>
+</div>
+
+<ng-template #loggedOut>
+    <div class="alert alert-danger" role="alert">
+        Proszę się zalogować!
+      </div>
+</ng-template>

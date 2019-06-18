@@ -1,0 +1,11 @@
+<div *ngIf="info.token; else loggedOut">
+  <nav><a routerLink="/add-image"><button type="button" class="btn btn-outline-success btn-lg btn-block">Dodaj nowe zdjęcie</button></a></nav>
+  <a routerLink="/my-gallery"><button type="button" class="btn btn-outline-primary btn-lg btn-block">Moja galeria zdjęć</button></a>
+  <a routerLink="/new-person"><button type="button" class="btn btn-outline-warning btn-lg btn-block">Dodaj nową osobę</button></a>
+</div>
+
+<ng-template #loggedOut>
+    <div class="alert alert-danger" role="alert">
+        Proszę się zalogować!
+      </div>
+</ng-template>

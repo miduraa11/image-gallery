@@ -1,0 +1,19 @@
+.container{
+    width: 100vw;
+    margin: auto;
+    overflow: hidden;
+}
+
+.navbar{
+    background-color: rgb(0, 162, 255);
+}
+a {
+    color: white !important;
+}
+a:hover{
+    color: rgb(184, 184, 184) !important;
+}
+
+.btn{
+    color: white;
+}

@@ -1,0 +1,27 @@
+<form [formGroup]="editImageForm" autocomplete="off">
+
+  <h2>Edytuj zdjęcie</h2>
+  <h4>Osoby na zdjęciu</h4>
+  <ng-select [items]="people"
+          bindLabel="name"
+          [multiple]="true"
+          notFoundText="Nie znaleziono"
+          placeholder="Wybierz osoby znajdujące się na zdjęciu"
+          formControlName="people"
+          style="margin: 2vh 0 2vh 0"
+          [(ngModel)]="selectedPeople">
+    </ng-select>
+
+    <h4>Etykiety</h4>
+    <ng-select [items]="tags"
+          bindLabel="name"
+          [multiple]="true"
+          notFoundText="Nie znaleziono"
+          placeholder="Wybierz tagi"
+          formControlName="tags"
+          style="margin: 2vh 0 2vh 0"
+          [(ngModel)]="selectedTags">
+    </ng-select>
+    <button type="button" class="btn btn-success btn-md btn-block" (click)="save()">Zapisz</button>
+</form>
+

@@ -1,0 +1,39 @@
+<h2 style="text-align: center; margin-top: 5vh">Moja galeria zdjęć</h2>
+
+<form [formGroup]="galleryForm" autocomplete="off">
+    <h4>Wyszukaj zdjęcia z osobą</h4>
+    <ng-select [items]="people"
+            bindLabel="name"
+            notFoundText="Nie znaleziono"
+            placeholder="Wybierz osobę"
+            formControlName="person"
+            style="margin: 2vh 0 2vh 0"
+            dropdownPosition="auto"
+            [hideSelected]="true">
+      </ng-select>
+
+      <h4>Wybierz etykietę</h4>
+      <ng-select [items]="tags"
+            bindLabel="name"
+            [multiple]="false"
+            notFoundText="Nie znaleziono"
+            placeholder="Wybierz tagi"
+            formControlName="tag"
+            style="margin: 2vh 0 2vh 0"
+            dropdownPosition="auto"
+            [hideSelected]="true">
+      </ng-select>
+      <button type="button" class="btn btn-success btn-md btn-block" (click)="searchImages()">Szukaj</button>
+  </form>
+
+<div class="row">
+      <div *ngFor="let userImage of userImages" class="container column">
+        <img src="/assets/{{userImage.name}}" class="image">
+        <div class="overlay">
+          <div class="button">
+            <button class="btn btn-primary btn-block" (click)="openImageViewDialog(userImage.name)">Pokaż zdjęcie</button>
+            <button class="btn btn-primary btn-block" (click)="openEditImageDialog(userImage.name)">Edytuj</button>
+          </div>
+        </div>
+      </div>
+</div>

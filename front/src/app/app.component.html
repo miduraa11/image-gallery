@@ -1,0 +1,17 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <nav><a routerLink="/home"> <button type="button" class="btn btn-lg">Moja galeria zdjęć</button></a></nav>
+    </div>
+
+    <div class="btn-group">
+        <nav *ngIf="authority === 'admin'"><a routerLink="/admin"> <button type="button" class="btn">Admin panel</button></a></nav>
+        <nav *ngIf="!authority"><a routerLink="auth/login"> <button type="button" class="btn">Zaloguj</button></a></nav>
+        <nav *ngIf="authority"><a routerLink="#" (click)="logout()"> <button type="button" class="btn">Wyloguj</button></a></nav>
+    </div>
+    
+  </div>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
